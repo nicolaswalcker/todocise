@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -18,5 +18,12 @@
     "@vueuse/nuxt": "^10.5.0",
     "eslint": "^8.52.0",
     "nuxt": "^3.8.2"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-vue-next": "^0.292.0",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7"
   }
 }
