@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full max-w-md">
+    <div class="w-full max-w-md flex flex-col items-start justify-center gap-2">
       <h3 class="font-medium">
         Nivel atual: <span class="h-5 w-5 bg-lime-300 text-secondary inline-flex items-center justify-center rounded-full">{{ tasksStore.level }}</span>
       </h3>
@@ -42,4 +42,11 @@
 
 <script lang="ts" setup>
 const tasksStore = useTasksStore()
+
+useSeoMeta({
+  title: 'Todocise',
+  description: 'Faça tarefas, complete exercícios e ganhe pontos!',
+  ogUrl: 'https://main.d34xh70rt2audg.amplifyapp.com/',
+  ogImage: 'https://main.d34xh70rt2audg.amplifyapp.com/og-image.jpg'
+})
 </script>
