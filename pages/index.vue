@@ -46,7 +46,13 @@ const tasksStore = useTasksStore()
 useSeoMeta({
   title: 'Todocise',
   description: 'Faça tarefas, complete exercícios e ganhe pontos!',
+  ogTitle: 'Todocise',
+  ogDescription: 'Faça tarefas, complete exercícios e ganhe pontos!',
   ogUrl: 'https://main.d34xh70rt2audg.amplifyapp.com/',
-  ogImage: 'https://main.d34xh70rt2audg.amplifyapp.com/og.jpg'
+  ogImage: 'https://main.d34xh70rt2audg.amplifyapp.com/og.jpg',
+  twitterImage: 'https://main.d34xh70rt2audg.amplifyapp.com/og.jpg',
+  twitterTitle: 'Todocise',
+  twitterDescription: 'Faça tarefas, complete exercícios e ganhe pontos!',
+  twitterCard: 'summary_large_image'
 })
 </script>
