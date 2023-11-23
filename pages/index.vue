@@ -41,8 +41,6 @@
 </template>
 
 <script lang="ts" setup>
-const tasksStore = useTasksStore()
-
 useSeoMeta({
   title: 'Todocise',
   description: 'Faça tarefas, complete exercícios e ganhe pontos!',
@@ -55,4 +53,18 @@ useSeoMeta({
   twitterDescription: 'Faça tarefas, complete exercícios e ganhe pontos!',
   twitterCard: 'summary_large_image'
 })
+
+useHead({
+  htmlAttrs: {
+    lang: 'pt-br'
+  },
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/favicon.ico'
+    }
+  ]
+})
+const tasksStore = useTasksStore()
 </script>
