@@ -47,6 +47,6 @@ useSeoMeta({
   title: 'Todocise',
   description: 'Faça tarefas, complete exercícios e ganhe pontos!',
   ogUrl: 'https://main.d34xh70rt2audg.amplifyapp.com/',
-  ogImage: 'https://main.d34xh70rt2audg.amplifyapp.com/og-image.jpg'
+  ogImage: 'https://main.d34xh70rt2audg.amplifyapp.com/og.jpg'
 })
 </script>
