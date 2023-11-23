@@ -51,7 +51,7 @@ useSeoMeta({
   twitterImage: 'https://www.todocise.app/og.jpg',
   twitterTitle: 'Todocise',
   twitterDescription: 'Faça tarefas, complete exercícios e ganhe pontos!',
-  twitterCard: 'summary_large_image'
+  twitterCard: 'summary'
 })
 
 useHead({
