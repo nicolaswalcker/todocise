@@ -50,8 +50,8 @@ export const useTasksStore = defineStore('tasks', () => {
     level,
     exp,
     expToNextLevel,
-    progress,
     actualStreak,
+    progress,
     doneTask,
     clearTasks,
     deleteTask
@@ -59,6 +59,6 @@ export const useTasksStore = defineStore('tasks', () => {
 }, {
   persist: {
     key: 'tasks',
-    storage: localStorage
+    storage: persistedState.localStorage
   }
 })

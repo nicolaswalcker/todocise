@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/eslint-module',
@@ -29,5 +30,6 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./stores/**', './custom-folder/stores/**']
   },
+
   devtools: { enabled: true }
 })
