@@ -1,13 +1,15 @@
 <template>
-  <div class="h-screen bg-background">
-    <UiButton>Botao</UiButton>
+  <div class="h-[100dvh] bg-background">
+    <NuxtLayout>
+      <RouterView />
+    </NuxtLayout>
   </div>
 </template>
 
 <script setup lang="ts">
-useHead({
-  htmlAttrs: {
-    class: 'dark'
-  }
-})
+// useHead({
+//   htmlAttrs: {
+//     class: 'dark'
+//   }
+// })
 </script>

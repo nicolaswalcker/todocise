@@ -1,9 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/eslint-module',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    'nuxt-icon',
+    '@nuxtjs/color-mode',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt'
   ],
   hooks: {
     'components:dirs': (dirs) => {
@@ -17,6 +22,13 @@ export default defineNuxtConfig({
         pathPrefix: false
       })
     }
+  },
+  colorMode: {
+    classSuffix: '',
+    storageKey: 'nuxt-color-mode'
+  },
+  pinia: {
+    storesDirs: ['./stores/**', './custom-folder/stores/**']
   },
   devtools: { enabled: true }
 })
