@@ -15,7 +15,7 @@
       >
         <template #item="{index}">
           <div :key="index" class="w-full border-b p-3 h-14 flex items-center justify-between gap-3 group last:border-none">
-            <input v-model="tasksStore.tasks[index]" :placeholder="index === 0 ? 'Escreva algo' : ''" class="w-full h-full outline-none bg-transparent" type="text">
+            <input v-model="tasksStore.tasks[index]" :aria-label="`Tarefa ${index}`" :placeholder="index === 0 ? 'Escreva algo' : ''" class="w-full h-full outline-none bg-transparent" type="text">
             <div class="flex items-center gap-2">
               <Icon v-if="tasksStore.tasks[index].length > 0" name="material-symbols:drag-pan-rounded" size="24" class="!hidden group-hover:!block handle cursor-move show" />
               <UiButton
@@ -55,20 +55,9 @@
 
 <script lang="ts" setup>
 import draggableComponent from 'vuedraggable'
-useSeoMeta({
-  ogTitle: 'todocise',
-  ogDescription: 'Faça tarefas, complete exercícios e ganhe pontos!',
-  ogUrl: 'https://www.todocise.app/',
-  ogImage: 'https://www.todocise.app/og.jpg',
-  twitterImage: 'https://www.todocise.app/og.jpg',
-  twitterTitle: 'todocise',
-  twitterDescription: 'Faça tarefas, complete exercícios e ganhe pontos!',
-  twitterCard: 'summary'
-})
 useHead({
-  title: 'todocise',
   htmlAttrs: {
-    lang: 'pt-br'
+    lang: 'pt-BR'
   },
   link: [
     {
