@@ -56,7 +56,6 @@ export default defineNuxtConfig({
     devOptions: {
       enabled: true
     }
-
   },
   hooks: {
     'components:dirs': (dirs) => {
@@ -78,6 +77,5 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./stores/**', './custom-folder/stores/**']
   },
-
-  devtools: { enabled: true }
+  devtools: { enabled: false }
 })
