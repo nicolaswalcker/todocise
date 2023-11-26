@@ -72,7 +72,9 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: '',
-    storageKey: 'nuxt-color-mode'
+    storageKey: 'nuxt-color-mode',
+    fallback: 'dark',
+    preference: 'dark'
   },
   pinia: {
     storesDirs: ['./stores/**', './custom-folder/stores/**']

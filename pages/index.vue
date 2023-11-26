@@ -15,7 +15,7 @@
       >
         <template #item="{index}">
           <div :key="index" class="w-full border-b p-3 h-14 flex items-center justify-between gap-3 group last:border-none">
-            <input v-model="tasksStore.tasks[index]" :aria-label="`Tarefa ${index}`" :placeholder="index === 0 ? 'Escreva algo' : ''" class="w-full h-full outline-none bg-transparent" type="text">
+            <input v-model="tasksStore.tasks[index]" :aria-label="`Tarefa ${index}`" :placeholder="index === 0 ? 'Escreva algo' : ''" class="w-full h-full outline-none bg-transparent text-xl" type="text">
             <div class="flex items-center gap-2">
               <Icon v-if="tasksStore.tasks[index].length > 0" name="material-symbols:drag-pan-rounded" size="24" class="!hidden group-hover:!block handle cursor-move show" />
               <UiButton
