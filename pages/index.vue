@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-full flex items-center justify-center flex-col gap-2">
     <h2 class="text-lg md:text-2xl font-normal">
-      Complete tarefas para ganhar <span class="text-blue-600">pontos</span>
+      Complete tarefas para ganhar <span class="font-bold" :class="textColor">pontos</span>
     </h2>
     <div class="rounded border w-full max-w-md h-auto min-h-[calc(56px*5)]">
       <draggableComponent
@@ -90,6 +90,11 @@ const dragOptions = {
   sort: true
 }
 
+const colorMode = useColorMode()
+
+const textColor = computed(() => {
+  return colorMode.preference === 'light' ? 'text-indigo-700' : 'text-lime-500'
+})
 </script>
 
 <style>
