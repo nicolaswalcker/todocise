@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useTasksStore = defineStore('tasks', () => {
   const tasksLimit = ref(5)
-  const tasks = ref(new Array(tasksLimit.value).fill(''))
+  const tasks = ref<Array<string>>(new Array(tasksLimit.value).fill(''))
   const level = ref(1)
   const exp = ref(0)
   const expToNextLevel = ref(100)

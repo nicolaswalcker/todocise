@@ -8,8 +8,24 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@nuxtjs/color-mode',
     '@pinia/nuxt',
-    '@pinia-plugin-persistedstate/nuxt'
+    '@pinia-plugin-persistedstate/nuxt',
+    '@vite-pwa/nuxt'
   ],
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'todocise',
+      short_name: 'todocise',
+      theme_color: '#ffffff'
+    },
+    workbox: {
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+    },
+    devOptions: {
+      enabled: true
+    }
+
+  },
   hooks: {
     'components:dirs': (dirs) => {
       dirs.unshift({
