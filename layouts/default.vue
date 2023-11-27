@@ -5,7 +5,7 @@
         todocise
       </NuxtLink>
       <section class="w-auto flex gap-5">
-        <UiButton :aria-label="`${$colorMode.preference} mode`" variant="ghost" @click="toggleColorMode">
+        <UiButton :aria-label="`${colorModeText} mode`" variant="ghost" @click="toggleColorMode">
           <Icon v-if="$colorMode.preference === 'dark'" class="md:mr-2" name="material-symbols:light-mode-outline" size="24" />
           <Icon v-else class="md:mr-2" name="material-symbols:dark-mode-outline" size="24" />
           <span class="hidden text-lg md:block">{{ colorModeText }} mode</span>
