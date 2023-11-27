@@ -56,6 +56,7 @@
 <script lang="ts" setup>
 import draggableComponent from 'vuedraggable'
 useHead({
+  title: 'todocise',
   htmlAttrs: {
     lang: 'pt-BR'
   },
