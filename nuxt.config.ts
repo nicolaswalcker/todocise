@@ -110,7 +110,7 @@ export default defineNuxtConfig({
         },
         {
           name: 'twitter:card',
-          content: 'summary_large_image'
+          content: 'summary'
         },
         {
           name: 'twitter:title',
