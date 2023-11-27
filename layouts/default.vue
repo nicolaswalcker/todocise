@@ -5,12 +5,12 @@
         todocise
       </NuxtLink>
       <section class="w-auto flex gap-5">
-        <UiButton :aria-label="`Modo de cor ${$colorMode.preference}`" variant="ghost" @click="toggleColorMode">
+        <UiButton :aria-label="`${$colorMode.preference} mode`" variant="ghost" @click="toggleColorMode">
           <Icon v-if="$colorMode.preference === 'dark'" class="md:mr-2" name="material-symbols:light-mode-outline" size="24" />
           <Icon v-else class="md:mr-2" name="material-symbols:dark-mode-outline" size="24" />
           <span class="hidden text-lg md:block">{{ colorModeText }} mode</span>
         </UiButton>
-        <UiButton aria-label="Limpar todas as tarefas" variant="ghost" @click="tasksStore.clearTasks()">
+        <UiButton aria-label="limpar tudo" variant="ghost" @click="tasksStore.clearTasks()">
           <Icon class="md:mr-2" name="material-symbols:delete-outline" size="24" />
           <span class="hidden md:block text-lg ">limpar tudo</span>
         </UiButton>
