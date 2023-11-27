@@ -79,5 +79,58 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./stores/**', './custom-folder/stores/**']
   },
+  app: {
+    head: {
+      meta: [
+        {
+          charset: 'utf-8'
+        },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1'
+        },
+        {
+          name: 'description',
+          content: 'Faça tarefas, complete exercícios e ganhe pontos!'
+        },
+        {
+          name: 'og:title',
+          content: 'todocise'
+        },
+        {
+          name: 'og:description',
+          content: 'Faça tarefas, complete exercícios e ganhe pontos!'
+        },
+        {
+          name: 'og:url',
+          content: 'https://www.todocise.app/'
+        },
+        {
+          name: 'og:image',
+          content: 'https://www.todocise.app/og.jpg'
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
+        {
+          name: 'twitter:title',
+          content: 'todocise'
+        },
+        {
+          name: 'twitter:description',
+          content: 'Faça tarefas, complete exercícios e ganhe pontos!'
+        },
+        {
+          name: 'twitter:image',
+          content: 'https://www.todocise.app/og.jpg'
+        },
+        {
+          name: 'twitter:creator',
+          content: '@whywalcker'
+        }
+      ]
+    }
+  },
   devtools: { enabled: false }
 })
