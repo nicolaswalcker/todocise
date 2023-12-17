@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
+  pages: true,
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/eslint-module',
@@ -8,7 +9,8 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
-    '@vite-pwa/nuxt'
+    '@vite-pwa/nuxt',
+    '@vueuse/nuxt'
   ],
   pwa: {
     registerType: 'autoUpdate',
@@ -130,6 +132,9 @@ export default defineNuxtConfig({
         }
       ]
     }
+  },
+  build: {
+    transpile: ['gsap']
   },
   devtools: { enabled: false }
 })
