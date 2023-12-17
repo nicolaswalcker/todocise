@@ -15,9 +15,16 @@
       >
         <template #item="{index}">
           <div :key="index" class="w-full border-b p-3 h-14 flex items-center justify-between gap-3 group last:border-none">
-            <input v-model="tasksStore.tasks[index]" :aria-label="`Tarefa ${index}`" :placeholder="index === 0 ? 'Escreva algo' : ''" class="w-full h-full outline-none bg-transparent text-xl" type="text">
-            <div class="flex items-center gap-2">
-              <Icon v-if="tasksStore.tasks[index].length > 0" name="material-symbols:drag-pan-rounded" size="24" class="!hidden group-hover:!block handle cursor-move show" />
+            <input
+              v-model="tasksStore.tasks[index]"
+              :aria-label="`Tarefa ${index}`"
+              :placeholder="index === 0 ? 'Escreva algo' : ''"
+              class="w-full h-full outline-none bg-transparent text-xl"
+              type="text"
+              @keydown.enter="jumpToNextInput(index)"
+            >
+            <div class="flex items-center gap-2 h-full">
+              <span class="hidden group-hover:block handle cursor-move show h-full relative"><Icon v-if="tasksStore.tasks[index].length > 0" name="material-symbols:drag-pan-rounded" size="24" /></span>
               <UiButton
                 v-if="tasksStore.tasks[index].length > 0"
                 size="icon"
@@ -41,10 +48,42 @@
         </template>
       </draggableComponent>
     </div>
-    <div class="w-full max-w-md flex flex-col items-start justify-center gap-2">
-      <h3 class="font-medium">
-        Nivel atual: <span class="h-5 w-5 bg-lime-300 text-secondary inline-flex items-center justify-center rounded-full">{{ tasksStore.level }}</span>
-      </h3>
+    <div class="w-full max-w-md flex flex-col items-start justify-between gap-2">
+      <div class="font-medium flex w-full justify-between items-center">
+        <span>{{ username }} <span class="h-6 w-6 bg-ring text-secondary font-semibold inline-flex items-center justify-center rounded-full">{{ tasksStore.level }}</span>
+        </span>
+        <div class="flex">
+          <UiPopover v-if="tasksStore.actualStreak > 1">
+            <UiPopoverTrigger class="flex items-end justify-end">
+              <UiButton variant="ghost">
+                <Icon name="fluent-emoji-flat:fire" size="24" />
+                {{ tasksStore.actualStreak }}
+              </UiButton>
+            </UiPopoverTrigger>
+            <UiPopoverContent>
+              <div class="flex flex-col gap-2">
+                Você está em uma sequência de {{ tasksStore.actualStreak }} tarefas!
+                Continue assim!!!
+              </div>
+            </UiPopoverContent>
+          </UiPopover>
+          <UiPopover>
+            <UiPopoverTrigger>
+              <UiButton size="icon" variant="ghost">
+                <Icon name="material-symbols:info-outline-rounded" size="24" />
+              </UiButton>
+            </UiPopoverTrigger>
+            <UiPopoverContent>
+              <div class="flex flex-col gap-2">
+                <span class="font-bold">Nível {{ tasksStore.level }}</span>
+                <span>Experiência: {{ tasksStore.exp }}/{{ tasksStore.expToNextLevel }}</span>
+                <span>Próximo nível em: {{ tasksStore.expToNextLevel - tasksStore.exp }} pontos</span>
+              </div>
+            </UiPopoverContent>
+          </UiPopover>
+        </div>
+      </div>
+
       <UiProgress v-model="tasksStore.progress" />
       <div class="w-full flex justify-between">
         <span>0</span><span>{{ tasksStore.expToNextLevel }}</span>
@@ -54,9 +93,21 @@
 </template>
 
 <script lang="ts" setup>
+import { useStorage } from '@vueuse/core'
 import draggableComponent from 'vuedraggable'
+definePageMeta({
+  middleware: 'username',
+  pageTransition: transitionConfig,
+  layoutTransition: transitionConfig
+})
+const username = useStorage('username', '')
+
+const tasksStore = useTasksStore()
+const titleCount = computed(() => tasksStore.countTasks > 0 ? `(${tasksStore.countTasks})` : '')
+useSeoMeta({
+  title: () => `todocise ${titleCount.value}`
+})
 useHead({
-  title: 'todocise',
   htmlAttrs: {
     lang: 'pt-BR'
   },
@@ -68,8 +119,6 @@ useHead({
     }
   ]
 })
-
-const tasksStore = useTasksStore()
 
 const onDragUpdate = () => {
   tasksStore.tasks.sort((a, b) => {
@@ -91,10 +140,27 @@ const dragOptions = {
   sort: true
 }
 
+const jumpToNextInput = (index: number) => {
+  const totalInputs = tasksStore.tasks.length
+  const nextIndex = (index + 1) % totalInputs
+  const nextInput: HTMLInputElement | null = document.querySelector(`input[aria-label="Tarefa ${nextIndex}"]`)
+
+  if (nextInput) {
+    nextInput.focus()
+  }
+}
+
 const colorMode = useColorMode()
 
 const textColor = computed(() => {
   return colorMode.preference === 'light' ? 'text-indigo-700' : 'text-lime-500'
+})
+const showModal = ref(true)
+
+onMounted(() => {
+  if (username.value.length > 0) {
+    showModal.value = false
+  }
 })
 </script>
 

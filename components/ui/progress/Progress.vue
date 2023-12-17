@@ -2,7 +2,7 @@
 import {
   ProgressIndicator,
   ProgressRoot,
-  type ProgressRootProps,
+  type ProgressRootProps
 } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
@@ -10,8 +10,8 @@ const props = withDefaults(
   defineProps<ProgressRootProps & { class?: string }>(),
   {
     class: '',
-    modelValue: 0,
-  },
+    modelValue: 0
+  }
 )
 </script>
 

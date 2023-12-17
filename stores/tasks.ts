@@ -12,6 +12,14 @@ export const useTasksStore = defineStore('tasks', () => {
     return Math.round((exp.value / expToNextLevel.value) * 100)
   })
 
+  const countTasks = computed(() => {
+    return tasks.value.filter(task => task !== '').length
+  })
+
+  const isTasksEmpty = computed(() => {
+    return tasks.value.every(task => task === '')
+  })
+
   const doneTask = (index: number) => {
     tasks.value[index] = ''
     exp.value += Math.round(10 * (level.value / 1.5))
@@ -42,6 +50,7 @@ export const useTasksStore = defineStore('tasks', () => {
   }
   const clearTasks = () => {
     tasks.value = new Array(tasksLimit.value).fill('')
+    actualStreak.value = 0
   }
 
   return {
@@ -52,6 +61,8 @@ export const useTasksStore = defineStore('tasks', () => {
     expToNextLevel,
     actualStreak,
     progress,
+    countTasks,
+    isTasksEmpty,
     doneTask,
     clearTasks,
     deleteTask
