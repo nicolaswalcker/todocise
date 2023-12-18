@@ -136,5 +136,5 @@ export default defineNuxtConfig({
   build: {
     transpile: ['gsap']
   },
-  devtools: { enabled: false }
+  devtools: { enabled: true }
 })
