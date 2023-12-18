@@ -9,7 +9,9 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  as: 'button'
+  as: 'button',
+  variant: 'default',
+  size: 'default'
 })
 </script>
 
